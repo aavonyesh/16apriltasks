@@ -1,0 +1,28 @@
+{
+  "cards": [
+    {
+      "id": "2",
+      "name": "Card 2",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti recusandae voluptatem consequatur eos assumenda amet.",
+      "price": "$80"
+    },
+    {
+      "id": "3",
+      "name": "Card 3",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti recusandae voluptatem consequatur eos assumenda amet.",
+      "price": "$95"
+    },
+    {
+      "id": "4",
+      "name": "Card 4",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti recusandae voluptatem consequatur eos assumenda amet.",
+      "price": "$110"
+    },
+    {
+      "id": "5",
+      "name": "Card 5",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti recusandae voluptatem consequatur eos assumenda amet.",
+      "price": "$120"
+    }
+  ]
+}
