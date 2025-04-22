@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Product class
+        //  - Name
+        //  - Price
+
+        //  Milk : Product
+        //  - FatPercent
+
+// Milk class-ından istifadə edib 3 milk yaradın və onları bir array-ə yığıb FatPercent-in ədədi ortasını çıxarın
+// class Product {
+//     constructor(name,price) {
+//         this.name = name;
+//         this.price = price;
+//     }
+
+// }
+// class Milk extends Product{
+//     constructor(name,price,fatPercent) {
+//         super(name,price);
+//         this.fatPercent=fatPercent;
+//     }
+// }
+
+// const milla = new Milk("Milla",2.8,1.9)
+// const atena = new Milk("Atena",2.5,1.8)
+// const palSud = new Milk("Palsud",2.8,1.2)
+// console.log(milla);
+// console.log(atena);
+// console.log(palSud);
+// const milks = [milla.fatPercent,atena.fatPercent,palSud.fatPercent]
+// console.log(milks);
+// let fpVlaue=0
+
+// for (let i = 0; i < milks.length; i++) {
+//     fpVlaue += milks[i];
+    
+// }
+// console.log(fpVlaue/milks.length);
+
+
+
+class Device {
+    constructor(brand, model, screenSize, batteryLevel,price,salePrice,discountPercentage,saleCount){
+        this.brand = brand;
+        this.model = model;
+        this.screensize = screenSize;
+        this.batteryLevel=batteryLevel;
+        this.price=price;
+        this.salePrice=salePrice;
+        this.discountPercentage = discountPercentage;
+        this.saleCount = saleCount;
+    }
+
+    calculateProfit(){
+        const satisDeyeri = this.salePrice * this.saleCount;
+        const mayaDeyeri = this.price * this.saleCount;
+        console.log(`Satis qiymeti ile: ${satisDeyeri}`);
+        console.log(`Maya deyeri ile: ${mayaDeyeri}`);
+        if (satisDeyeri > mayaDeyeri){
+            return satisDeyeri - mayaDeyeri;
+        }
+        else{
+            return 0;
+        }
+    }
+    displayBatteryLevel(){
+        console.log(`Battery level: ${this.batteryLevel}`);
+    }
+    displayDetails(){
+        console.log(`
+        Brand: ${this.brand}
+        Model: ${this.model}
+        Screen Size: ${this.screensize}
+        `);
+    }
+
+}
+let device = new Device("Apple","Iphone 14",6.1,100,1000,800,20,10);
+device.calculateProfit()
+device.displayBatteryLevel()
+device.displayDetails()
+
+class Phone extends Device {
+    constructor(brand, model, screenSize, batteryLevel,price,salePrice,discountPercentage,saleCount,isSmart){
+        super(brand, model, screenSize, batteryLevel,price,salePrice,discountPercentage,saleCount);
+        this.isSmart = isSmart;
+    }
+}
+class Laptop extends Device {
+    constructor(brand,model,screenSize,batteryLevel,price,salePrice,discountPercentage,saleCount,isRGBkeyboard){
+        super(brand, model, screenSize, batteryLevel,price,salePrice,discountPercentage,saleCount);
+        this.isRGBkeyboard = isRGBkeyboard;
+    }
+}
+
+let phone_1 = new Phone("Apple","Iphone 14",6.1,100,1400,800,20,15,true);
+let phone_2 = new Phone("Apple","Iphone 14 Pro",6.1,100,600,800,20,10,true);
+let phone_3 = new Phone("Apple","Iphone 13",6.1,100,800,800,20,12,true);
+let laptop_1 = new Laptop("Asus","ROG",15.6,100,1800,900,25,5,true);
+let laptop_2 = new Laptop("Asus","ROG pro",15.6,100,2000,1500,25,9,true);
+
+let devices = [phone_1,phone_2,phone_3,laptop_1,laptop_2]
+function filterByPrice (arr,price){
+    let filterByPriceDevices = arr.filter(x=> x.price>price)
+    let modelNames = filterByPriceDevices.map(x => x.model);
+    console.log("Devices with price > " + price + ":", modelNames);
+}
+function filterByName(arr,name){
+    let filterByNameDevices = arr.filter(x=>x.brand==name)
+    let modelNames = filterByNameDevices.map(x => x.saleCount);
+    console.log("Devices with brand " + name + ":", modelNames);
+    }
+function getTotalProfit(arr){
+    let totalProfit = 0;
+    for (let i = 0; i<arr.length;i++){
+        totalProfit +=arr[i].calculateProfit();
+    }
+    console.log("Total profit: " + totalProfit);
+}
+filterByPrice(devices,1000)
+filterByName(devices,"Apple")
+getTotalProfit(devices)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
